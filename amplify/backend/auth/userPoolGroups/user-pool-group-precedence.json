@@ -1,0 +1,10 @@
+[
+  {
+    "groupName": "expoappusers",
+    "precedence": 1
+  },
+  {
+    "groupName": "expoappadmin",
+    "precedence": 2
+  }
+]

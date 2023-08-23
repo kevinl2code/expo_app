@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Amplify, Auth } from 'aws-amplify'
+import { PaperProvider } from 'react-native-paper'
+import React from 'react'
+import { NavigationStack } from './src/navigation'
+import awsmobile from './aws-exports'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+Amplify.Logger.LOG_LEVEL = 'INFO'
 
-export default function App() {
+Amplify.configure(awsmobile)
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <SafeAreaProvider>
+      <PaperProvider>
+        <NavigationStack />
+      </PaperProvider>
+    </SafeAreaProvider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
